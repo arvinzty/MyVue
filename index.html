@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyVue</title>
+  <script type="text/javascript" src="./js/MyVue.js"></script>
+</head>
+<body>
+  <div id="app"> 
+    <h1>{{message}}</h1>
+    <input type="text" v-model="message">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <h2>{{demo.test1}}+{{demo.test2}}</h2>
+    <h3 v-html="demo.test3"></h3>
+  </div>
+
+  <script>
+    new MyVue({
+      el: '#app',
+      data: {
+        message: 'vue源码实现',
+        demo: {
+          test1: 'test1',
+          test2: 'test2',
+          test3: 'test3'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
