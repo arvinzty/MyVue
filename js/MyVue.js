@@ -40,7 +40,29 @@ class compile {
   compile (fragment) {
     const nodes = fragment.childNodes;
     [...nodes].forEach(child => {
-      console.log(child)
+      if (this.isElementNode(child)) {
+        //元素节点
+        // console.log('元素节点',child)
+        this.compileElement(child)
+      }else {
+        //文本节点
+        // console.log('文本节点',child)
+        // this.compileText(child)
+      }
+      if (child.childNodes && child.childNodes.length) {
+        this.compile(child)
+      }
     });
+  }
+
+  compileElement (node) {
+    console.log(node);
+    const attributes = node.attributes;
+    console.log(attributes)
+
+  }
+
+  compileText (node) {
+    // console.log(node)
   }
 }
